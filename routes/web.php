@@ -14,10 +14,12 @@
 
 Route::get('/', 'HomeController@index');
 
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
 
+    Route::get('/home', 'DailyReportController@index')->name('report');
     Route::get('/report', 'DailyReportController@index')->name('report');
     Route::get('/report/create', 'DailyReportController@create')->name('report');
     Route::post('/report/insert', 'DailyReportController@insert');

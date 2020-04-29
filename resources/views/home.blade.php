@@ -182,5 +182,7 @@
             </ul>
         </div>
     </div>
+    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    <a href="whatsapp://send?text=https://covid19-cascavel.herokuapp.com/">Compartilhe no Whatsapp</a>
 </div>
 @endsection
