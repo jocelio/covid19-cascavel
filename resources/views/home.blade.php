@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="container">
-    <canvas id="myChart" style="height: 20rem"></canvas>
+    <div class="row">
+        <div class="col">
+            <canvas id="myChart" style="height: 20rem"></canvas>
+        </div>
+    </div>
     <script>
         var ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
@@ -153,17 +157,28 @@
             }
         });
     </script>
-    <div class="row mt-4" >
+    <div class="row pt-4 border-top" >
         <div class="col">
-            <h3 class="text-center">Última atualizaçao</h3>
+            <h3 class="text-center">Última atualização - {{$lastReport->getFormattedReportDate()}}</h3>
             <ul class="list-group">
                 <li class="list-group-item">
                     {{$lastReport->confirmed}} Confirmados
                 </li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">
+                    {{$lastReport->discarded}} Descartados
+                </li>
+                <li class="list-group-item">
+                    {{$lastReport->under_investigation}} Em Investigação
+                </li>
+                <li class="list-group-item">
+                    {{$lastReport->interned_outside}} Internados Fora do Município
+                </li>
+                <li class="list-group-item">
+                    {{$lastReport->cured}} Curados
+                </li>
+                <li class="list-group-item">
+                    {{$lastReport->deaths}} Mortes
+                </li>
             </ul>
         </div>
     </div>
