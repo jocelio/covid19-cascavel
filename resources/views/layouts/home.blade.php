@@ -10,7 +10,7 @@
         <meta property="og:title" content="Cascavel Covid 19" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="http://covid19-cascavel.herokuapp.com/" />
-        <meta property="og:image" content="https://www.google.com/url?sa=i&url=https%3A%2F%2Fg1.globo.com%2Fsp%2Fribeirao-preto-franca%2Fnoticia%2F2020%2F04%2F27%2Fribeirao-preto-sp-confirma-7a-morte-por-coronavirus-cidade-tem-259-casos-positivos.ghtml&psig=AOvVaw2BcEnH4uRCIVce9nnk4-70&ust=1588281251706000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLD_nPLGjukCFQAAAAAdAAAAABAD" />
+        <meta property="og:image" content="http://covid19-cascavel.herokuapp.com/images/covid-19.jpg" />
         <meta property="og:image:width" content="675" />
         <meta property="og:image:height" content="1000" />
         <!-- Fonts -->
