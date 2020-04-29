@@ -2,17 +2,9 @@
 
 @section('content')
 <div class="container">
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <canvas id="myChart" width="900" height="500"></canvas>
     <script>
         var ctx = document.getElementById('myChart');
-
-        var dynamicColors = function() {
-            var r = Math.floor(Math.random() * 255);
-            var g = Math.floor(Math.random() * 255);
-            var b = Math.floor(Math.random() * 255);
-            return "rgb(" + r + "," + g + "," + b + ")";
-        };
-
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
