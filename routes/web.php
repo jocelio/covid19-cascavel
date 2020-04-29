@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/report', 'DailyReportController@index')->name('report');
+    Route::get('/report/create', 'DailyReportController@create')->name('report');
+    Route::post('/report/insert', 'DailyReportController@insert');
+    Route::delete('/report/{report}', 'DailyReportController@delete');
+
+});
