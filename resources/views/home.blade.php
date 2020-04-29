@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <canvas id="myChart" width="900" height="500"></canvas>
+    <canvas id="myChart" style="height: 20rem"></canvas>
     <script>
         var ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
@@ -153,6 +153,19 @@
             }
         });
     </script>
-
+    <div class="row mt-4" >
+        <div class="col">
+            <h3 class="text-center">Última atualizaçao</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    {{$lastReport->confirmed}} Confirmados
+                </li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+        </div>
+    </div>
 </div>
 @endsection

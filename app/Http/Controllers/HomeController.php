@@ -27,7 +27,8 @@ class HomeController extends Controller
         $reports = DailyReport::get();
 
         $labels = collect($reports)->map(function ($report){ return $report->getFormattedReportDate();});
+        $lastReport = collect($reports)->sortByDesc('report_date')->first();
 
-        return view('home',  ['reports'=> $reports, 'labels'=>$labels]);
+        return view('home',  ['reports'=> $reports, 'labels'=>$labels, 'lastReport'=>$lastReport]);
     }
 }
