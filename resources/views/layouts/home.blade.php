@@ -49,7 +49,7 @@
                     Desenvolvido por:
                     <a href="https://www.instagram.com/jocelio.iam/">Jocélio Lima</a> |
                     <a href="https://www.instagram.com/benemota.ds/">Bené Mota</a> |
-                    <a href="https://github.com/flavioVitoriano">Flávio Vitorino</a> |
+                    <a href="https://github.com/flavioVitoriano">Flávio Vitoriano</a> |
                     <a href="https://www.instagram.com/rodrigosoares.alb/">Rodrigo Soares</a>
                 </div>
             </div>
