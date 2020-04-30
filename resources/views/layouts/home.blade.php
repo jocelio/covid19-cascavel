@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Cascavel Covid 19</title>
+        <title>Covid-19 Cascavel</title>
         <meta name="title" content="Covid-19 Cascavel">
         <meta name="description" content="Informações sobre os casos de Corona Vírus (Covid19) no muninípio de Cascavel">
         <meta property="og:title" content="Covid-19 Cascavel" />
