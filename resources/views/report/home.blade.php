@@ -42,7 +42,7 @@
                             <tbody>
                             @foreach($reports as $report)
                                 <tr>
-                                    <td>{{$report->getFormattedReportDate()}}</td>
+                                    <td data-order="{{$report->report_date}}">{{$report->getFormattedReportDate()}}</td>
                                     <td>{{$report->confirmed}}</td>
                                     <td>{{$report->discarded}}</td>
                                     <td>{{$report->under_investigation}}</td>

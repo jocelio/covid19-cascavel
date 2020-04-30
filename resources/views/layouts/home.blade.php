@@ -17,6 +17,16 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165001958-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-165001958-1');
+        </script>
+
     </head>
     <body>
     <div class="container bg-white">
@@ -36,7 +46,7 @@
         <hr/>
             <div class="row text-center">
                 <div class="col">
-                    Desenvolvido por: Jocélio Lima |
+                    Desenvolvido por: <a href="https://www.instagram.com/jocelio.iam/">Jocélio Lima</a> |
                 </div>
             </div>
         </div>

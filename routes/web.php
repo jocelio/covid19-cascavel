@@ -23,6 +23,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/report', 'DailyReportController@index')->name('report');
     Route::get('/report/create', 'DailyReportController@create')->name('report');
     Route::post('/report/insert', 'DailyReportController@insert');
+    Route::get('/report/{report}/edit', 'DailyReportController@edit');
+    Route::post('/report/{report}', 'DailyReportController@update');
     Route::delete('/report/{report}', 'DailyReportController@delete');
 
 });

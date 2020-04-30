@@ -26,13 +26,19 @@ class DailyReportController extends Controller
      */
     public function index()
     {
-        $reports = DailyReport::get();
+        $reports = DailyReport::orderBy('report_date')->get();
         return view('report/home', ['reports'=> $reports]);
     }
 
     public function create()
     {
         return view('report/form');
+    }
+
+    public function edit($id)
+    {
+        $report = DailyReport::findOrFail($id);
+        return view('report/form', ['report'=>$report]);
     }
 
     public function insert(Request $request){
@@ -43,6 +49,16 @@ class DailyReportController extends Controller
         $dailyReport->create($fields);
 
         \Session::flash('status', 'Item cadastrado com sucesso.');
+        return Redirect::to('report');
+    }
+
+    public function update($id, Request $request){
+
+        $cliente = DailyReport::findOrFail($id);
+
+        $cliente->update($request->all());
+
+        \Session::flash('status', 'Item atualizado com sucesso.');
         return Redirect::to('report');
     }
 

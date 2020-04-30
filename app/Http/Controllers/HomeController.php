@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $reports = DailyReport::get();
+        $reports = DailyReport::orderBy('report_date')->get();
 
         $labels = collect($reports)->map(function ($report){ return $report->getFormattedReportDate();});
         $lastReport = collect($reports)->sortByDesc('report_date')->first();

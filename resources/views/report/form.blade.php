@@ -14,8 +14,8 @@
                         </div>
                     @endif
 
-                        @if(Request::is('*/editar'))
-                            {!! Form::model($cliente, ['method'=>'PATCH', 'url'=> 'clientes/'.$cliente->id]) !!}
+                        @if(Request::is('*/edit'))
+                            {!! Form::model($report, ['method'=>'POST', 'url'=> '/report/'.$report->daily_report_id]) !!}
                         @else
                             {!! Form::open(['url' => 'report/insert']) !!}
                         @endif

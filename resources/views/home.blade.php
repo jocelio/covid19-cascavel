@@ -15,143 +15,51 @@
                 labels: {!! $labels !!},
                 datasets: [
                     {
-                        label: 'Confirmados',
-                        fill: false,
-                        data: [@foreach($reports as $report) {!!$report->confirmed!!},@endforeach],
-                        borderWidth: 0,
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                    },
-                    {
                         label: 'Descartados',
                         fill: false,
                         data: [@foreach($reports as $report) {!!$report->discarded!!},@endforeach],
-                        borderWidth: 0,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
+                        borderWidth: 2,
+                        borderColor: '#33B3E9',
+                        backgroundColor: '#33B3E9',
+                    },
+                    {
+                        label: 'Confirmados',
+                        fill: false,
+                        data: [@foreach($reports as $report) {!!$report->confirmed!!},@endforeach],
+                        borderWidth: 3,
+                        borderColor: '#FF6384',
+                        backgroundColor: '#FF6384',
                     },
                     {
                         label: 'Em Investigação',
                         fill: false,
                         data: [@foreach($reports as $report) {!!$report->under_investigation!!},@endforeach],
-                        borderWidth: 0,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                    },
-                    {
-                        label: 'Internado em Outra Cidade',
-                        fill: false,
-                        data: [@foreach($reports as $report) {!!$report->interned_outside!!},@endforeach],
-                        borderWidth: 0,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
+                        borderWidth: 2,
+                        borderColor: '#FEB125',
+                        backgroundColor: '#FEB125',
                     },
                     {
                         label: 'Curados',
                         fill: false,
                         data: [@foreach($reports as $report) {!!$report->cured!!},@endforeach],
-                        borderWidth: 0,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                    },
-                    {
-                        label: 'Mortes',
-                        fill: false,
-                        data: [@foreach($reports as $report) {!!$report->deaths!!},@endforeach],
-                        borderWidth: 0,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
+                        borderWidth: 2,
+                        borderColor: '#69D7AB',
+                        backgroundColor: '#69D7AB',
                     },
                 ]
             },
             options: {
+                responsive: true,
                 scales: {
                     yAxes: [{
-                        stacked: true
+                        ticks: {
+                            beginAtZero:true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Quantidade De Casos',
+                            fontSize: 20
+                        }
                     }]
                 }
             }
