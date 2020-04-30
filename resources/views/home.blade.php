@@ -116,7 +116,7 @@
             type: 'pie',
             data: {
                 datasets: [{
-                    data: [{!!$report->confirmed - $report->cured - $report->death!!}, {!!$report->cured!!}, {!!$report->deaths!!}],
+                    data: [{!!$lastReport->confirmed - $lastReport->cured - $lastReport->death!!}, {!!$lastReport->cured!!}, {!!$lastReport->deaths!!}],
                     backgroundColor: ["#FEB125", "#69D7AB", "#9F2B55"]
                 }],
                 labels: ['Ativos','Curados','Mortes'
