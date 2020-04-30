@@ -10,7 +10,7 @@
         <meta property="og:title" content="Cascavel Covid 19" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="http://covid19-cascavel.herokuapp.com/" />
-        <meta property="og:image" content="http://covid19-cascavel.herokuapp.com/images/covid-19.jpg" />
+        <meta property="og:image" content="{{ asset('images/covid-19.jpg') }}" />
         <meta property="og:image:width" content="675" />
         <meta property="og:image:height" content="1000" />
         <!-- Fonts -->
@@ -44,9 +44,13 @@
             @yield('content')
         <div>
         <hr/>
-            <div class="row text-center">
+            <div class="row text-center p-4">
                 <div class="col">
-                    Desenvolvido por: <a href="https://www.instagram.com/jocelio.iam/">Jocélio Lima</a> |
+                    Desenvolvido por:
+                    <a href="https://www.instagram.com/jocelio.iam/">Jocélio Lima</a> |
+                    <a href="https://www.instagram.com/benemota.ds/">Bené Mota</a> |
+                    <a href="https://github.com/flavioVitoriano">Flávio Vitorino</a> |
+                    <a href="https://www.instagram.com/rodrigosoares.alb/">Rodrigo Soares</a>
                 </div>
             </div>
         </div>

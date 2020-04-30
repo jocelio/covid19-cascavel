@@ -3,8 +3,51 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col">
-            <canvas id="myChart" style="height: 20rem"></canvas>
+        <div class="col-md-3">
+            <div class="row pt-4 border-top" >
+                <div class="col">
+                    <h3 class="text-center">Última atualização - {{$lastReport->getFormattedReportDate()}}</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            {{$lastReport->confirmed}} Confirmados
+                        </li>
+                        <li class="list-group-item">
+                            {{$lastReport->discarded}} Descartados
+                        </li>
+                        <li class="list-group-item">
+                            {{$lastReport->under_investigation}} Em Investigação
+                        </li>
+                        <li class="list-group-item">
+                            {{$lastReport->interned_outside}} Internados Fora do Município
+                        </li>
+                        <li class="list-group-item">
+                            {{$lastReport->cured}} Curados
+                        </li>
+                        <li class="list-group-item">
+                            {{$lastReport->deaths}} Mortes
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col pt-3">
+                    <a class="" href="whatsapp://send?text=https://covid19-cascavel.herokuapp.com/">
+                        <img src="{{ asset('images/whatsapp-48.png') }}" alt="Compartilhe no Whatsapp" title="Compartilhe no Whatsapp" width="30"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row mt-4">
+                <div class="col">
+                    <canvas id="myChart" style="height: 20rem"></canvas>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <canvas id="myPieChart" style="height: 20rem"></canvas>
+                </div>
+            </div>
         </div>
     </div>
     <script>
@@ -50,6 +93,10 @@
             },
             options: {
                 responsive: true,
+                title: {
+                    display: true,
+                    text: 'Progressão dos Casos'
+                },
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -64,33 +111,36 @@
                 }
             }
         });
+
+        var myPieChart = new Chart(document.getElementById('myPieChart'), {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [{!!$report->confirmed - $report->cured - $report->death!!}, {!!$report->cured!!}, {!!$report->deaths!!}],
+                    backgroundColor: ["#FEB125", "#69D7AB", "#9F2B55"]
+                }],
+                labels: ['Ativos','Curados','Mortes'
+                ]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Divisão do cenário atual'
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: '',
+                            fontSize: 20
+                        }
+                    }]
+                }
+            }
+        });
+
     </script>
-    <div class="row pt-4 border-top" >
-        <div class="col">
-            <h3 class="text-center">Última atualização - {{$lastReport->getFormattedReportDate()}}</h3>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    {{$lastReport->confirmed}} Confirmados
-                </li>
-                <li class="list-group-item">
-                    {{$lastReport->discarded}} Descartados
-                </li>
-                <li class="list-group-item">
-                    {{$lastReport->under_investigation}} Em Investigação
-                </li>
-                <li class="list-group-item">
-                    {{$lastReport->interned_outside}} Internados Fora do Município
-                </li>
-                <li class="list-group-item">
-                    {{$lastReport->cured}} Curados
-                </li>
-                <li class="list-group-item">
-                    {{$lastReport->deaths}} Mortes
-                </li>
-            </ul>
-        </div>
-    </div>
-    <i class="fa fa-whatsapp" aria-hidden="true"></i>
-    <a href="whatsapp://send?text=https://covid19-cascavel.herokuapp.com/">Compartilhe no Whatsapp</a>
+
 </div>
 @endsection
