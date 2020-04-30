@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Cascavel Covid 19</title>
-        <meta name="title" content="Cascavel Covid 19">
-        <meta name="description" content="Informações sobre o acompanhamento dos casos de Corona Vírus (Covid19) no muninípio de Cascavel">
-        <meta property="og:title" content="Cascavel Covid 19" />
+        <meta name="title" content="Covid 19 Cascavel">
+        <meta name="description" content="Informações sobre os casos de Corona Vírus (Covid19) no muninípio de Cascavel">
+        <meta property="og:title" content="Covid 19 Cascavel" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="http://covid19-cascavel.herokuapp.com/" />
         <meta property="og:image" content="{{ asset('images/covid-19.jpg') }}" />
