@@ -40,12 +40,12 @@
         <div class="col-md-9">
             <div class="row mt-4">
                 <div class="col">
-                    <canvas id="myChart" style="height: 20rem"></canvas>
+                    <canvas id="myChart" ></canvas>
                 </div>
             </div>
             <div class="row mt-4">
                 <div class="col">
-                    <canvas id="myPieChart" style="height: 20rem"></canvas>
+                    <canvas id="myPieChart" ></canvas>
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@
             data: {
                 datasets: [{
                     data: [{!!$lastReport->confirmed - $lastReport->cured - $lastReport->death!!}, {!!$lastReport->cured!!}, {!!$lastReport->deaths!!}],
-                    backgroundColor: ["#FEB125", "#69D7AB", "#9F2B55"]
+                    backgroundColor: ["#FEB125", "#69D7AB", "#9F2B55"],
                 }],
                 labels: ['Ativos','Curados','Mortes'
                 ]
@@ -130,13 +130,20 @@
                 },
                 scales: {
                     yAxes: [{
+                        gridLines: {
+                            display: false,
+                        },
+                        ticks: {
+                            display: false
+                        },
                         scaleLabel: {
-                            display: true,
+                            display: false,
                             labelString: '',
                             fontSize: 20
                         }
                     }]
-                }
+                },
+
             }
         });
 
