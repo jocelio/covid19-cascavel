@@ -1,55 +1,119 @@
 @extends('layouts.home')
 
 @section('content')
-<div class="container">
+
     <div class="row">
-        <div class="col-md-3">
-            <div class="row pt-4 border-top" >
-                <div class="col">
-                    <h3 class="text-center">Última atualização - {{$lastReport->getFormattedReportDate()}}</h3>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            {{$lastReport->confirmed}} Confirmados
-                        </li>
-                        <li class="list-group-item">
-                            {{$lastReport->discarded}} Descartados
-                        </li>
-                        <li class="list-group-item">
-                            {{$lastReport->under_investigation}} Em Investigação
-                        </li>
-                        <li class="list-group-item">
-                            {{$lastReport->interned_outside}} Internados Fora do Município
-                        </li>
-                        <li class="list-group-item">
-                            {{$lastReport->cured}} Curados
-                        </li>
-                        <li class="list-group-item">
-                            {{$lastReport->deaths}} Mortes
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row" >
-                <div class="col pt-3">
-                    <a class="" href="whatsapp://send?text=https://covid19-cascavel.herokuapp.com/">
-                        <img src="{{ asset('images/whatsapp-48.png') }}" alt="Compartilhe no Whatsapp" title="Compartilhe no Whatsapp" width="30"/>
-                    </a>
+        <div class="col-md-6 col-xl-4">
+            <div class="card mb-3 widget-content bg-midnight-bloom">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Confirmados</div>
+                        <div class="widget-subheading">Last year expenses</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span>{{$lastReport->confirmed}}</span></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-9">
-            <div class="row mt-4">
-                <div class="col">
-                    <canvas id="myChart" ></canvas>
+        <div class="col-md-6 col-xl-4">
+            <div class="card mb-3 widget-content bg-arielle-smile">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Descartados</div>
+                        <div class="widget-subheading">Total Clients Profit</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span>{{$lastReport->discarded}}</span></div>
+                    </div>
                 </div>
             </div>
-            <div class="row mt-4">
-                <div class="col">
-                    <canvas id="myPieChart" ></canvas>
+        </div>
+        <div class="col-md-6 col-xl-4">
+            <div class="card mb-3 widget-content bg-grow-early">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-heading"> Em Investigação</div>
+                        <div class="widget-subheading">People Interested</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span>{{$lastReport->under_investigation}}</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-4">
+            <div class="card mb-3 widget-content bg-grow-early">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Internados Fora do Município</div>
+                        <div class="widget-subheading">People Interested</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span>{{$lastReport->interned_outside}} </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-4">
+            <div class="card mb-3 widget-content bg-grow-early">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Curados</div>
+                        <div class="widget-subheading">People Interested</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span>{{$lastReport->cured}} </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-4">
+            <div class="card mb-3 widget-content bg-grow-early">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Óbitos</div>
+                        <div class="widget-subheading">People Interested</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span>{{$lastReport->deaths}} </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
+            <div class="card mb-3 widget-content bg-premium-dark">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Products Sold</div>
+                        <div class="widget-subheading">Revenue streams</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-warning"><span>$14M</span></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <a class="" href="whatsapp://send?text=https://covid19-cascavel.herokuapp.com/">
+        <img src="{{ asset('images/whatsapp-48.png') }}" alt="Compartilhe no Whatsapp" title="Compartilhe no Whatsapp" width="30"/>
+    </a>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="mb-3 card">
+                <canvas id="myChart" ></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="mb-3 card">
+                <canvas id="myPieChart" ></canvas>
+            </div>
+        </div>
+    </div>
+
     <script>
         var ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
@@ -149,5 +213,4 @@
 
     </script>
 
-</div>
 @endsection
