@@ -24,7 +24,7 @@
                     <div class="widget-content-left">
                         <div class="widget-heading">Confirmados</div>
                         <div class="widget-subheading">
-                            Crescimento de {{$ratios->confirmedRatio}}% do ultimo relatório.
+                            Crescimento de {{$ratios->confirmedRatio}}% do último relatório.
                         </div>
                     </div>
                     <div class="widget-content-right">
@@ -39,7 +39,7 @@
                     <div class="widget-content-left">
                         <div class="widget-heading">Descartados</div>
                         <div class="widget-subheading">
-                            Crescimento de {{$ratios->discardedRatio}}% do ultimo relatório.
+                            Crescimento de {{$ratios->discardedRatio}}% do último relatório.
                         </div>
                     </div>
                     <div class="widget-content-right">
@@ -54,7 +54,7 @@
                     <div class="widget-content-left">
                         <div class="widget-heading"> Em Investigação</div>
                         <div class="widget-subheading">
-                            Crescimento de {{$ratios->underInvestigationRatio}}% do ultimo relatório.
+                            Crescimento de {{$ratios->underInvestigationRatio}}% do último relatório.
                         </div>
                     </div>
                     <div class="widget-content-right">
@@ -68,7 +68,7 @@
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading">Internados Fora do Município</div>
-                        <div class="widget-subheading">People Interested</div>
+                        <div class="widget-subheading">Description here</div>
                     </div>
                     <div class="widget-content-right">
                         <div class="widget-numbers text-white"><span>{{$lastReport->interned_outside}} </span></div>
@@ -81,7 +81,7 @@
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading">Curados</div>
-                        <div class="widget-subheading">People Interested</div>
+                        <div class="widget-subheading">Description here</div>
                     </div>
                     <div class="widget-content-right">
                         <div class="widget-numbers text-white"><span>{{$lastReport->cured}} </span></div>
@@ -94,7 +94,7 @@
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading">Óbitos</div>
-                        <div class="widget-subheading">People Interested</div>
+                        <div class="widget-subheading">Description here</div>
                     </div>
                     <div class="widget-content-right">
                         <div class="widget-numbers text-white"><span>{{$lastReport->deaths}} </span></div>
