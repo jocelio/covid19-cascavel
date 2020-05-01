@@ -15,7 +15,7 @@
     <meta name="description" content="Informações sobre os casos de Corona Vírus (Covid19) no muninípio de Cascavel">
     <meta property="og:title" content="Covid-19 Cascavel" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://covid19-cascavel.herokuapp.com/" />
+    <meta property="og:url" content={{config('app.url')}}" />
     <meta property="og:image" content="{{ asset('images/covid-19.jpg') }}" />
     <meta property="og:image:width" content="675" />
     <meta property="og:image:height" content="1000" />
@@ -180,7 +180,7 @@
                         @endauth
                         <li class="app-sidebar__heading">Compartilhe</li>
                         <li>
-                            <a class="" href="whatsapp://send?text=https://covid19-cascavel.herokuapp.com/">
+                            <a class="" href="whatsapp://send?text={{ config('app.url') }}">
                                 <img src="{{ asset('images/whatsapp-48.png') }}" alt="Compartilhe no Whatsapp" title="Compartilhe no Whatsapp" width="30"/>
                             </a>
                         </li>
