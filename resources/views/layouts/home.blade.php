@@ -457,7 +457,7 @@
                         <li>
                             <a href="index.html" class="mm-active">
                                 <i class="metismenu-icon pe-7s-rocket"></i>
-                                Dashboard Example 1
+                                Graficos
                             </a>
                         </li>
                     </ul>
@@ -474,8 +474,6 @@
                             </div>
                             <div>
                                 Última atualização - {{$lastReport->getFormattedReportDate()}}
-                                <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
-                                </div>
                             </div>
                         </div>
                     </div>
