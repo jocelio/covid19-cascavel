@@ -455,7 +455,19 @@
                     <ul class="vertical-nav-menu">
                         <li class="app-sidebar__heading">Dashboards</li>
                         <li>
-                            <a href="index.html" class="mm-active">
+                            <a href="/" class="@if(Request::is('/')) mm-active @endif">
+                                <i class="metismenu-icon pe-7s-graph1"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/supporters" class="@if(Request::is('supporters')) mm-active @endif">
+                                <i class="metismenu-icon pe-7s-diamond"></i>
+                                Apoiadores
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/about" class="@if(Request::is('about')) mm-active @endif">
                                 <i class="metismenu-icon pe-7s-rocket"></i>
                                 Graficos
                             </a>
@@ -463,7 +475,8 @@
                     </ul>
                 </div>
             </div>
-        </div>    <div class="app-main__outer">
+        </div>
+        <div class="app-main__outer">
             <div class="app-main__inner">
                 <div class="app-page-title">
                     <div class="page-title-wrapper">
@@ -480,10 +493,6 @@
                 </div>
 
                 @yield('content')
-
-
-
-
             </div>
             <div class="app-wrapper-footer">
                 <div class="app-footer">

@@ -31,4 +31,14 @@ class HomeController extends Controller
 
         return view('home',  ['reports'=> $reports, 'labels'=>$labels, 'lastReport'=>$lastReport]);
     }
+
+    public function supporters()
+    {
+        return view('supporters');
+    }
+
+    public function about()
+    {
+        return view('about');
+    }
 }

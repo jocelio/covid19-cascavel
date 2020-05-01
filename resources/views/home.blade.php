@@ -1,7 +1,22 @@
 @extends('layouts.home')
 
 @section('content')
-
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-date icon-gradient bg-mean-fruit">
+                    </i>
+                </div>
+                <div>
+                    Última atualização - {{$lastReport->getFormattedReportDate()}}
+                    <div class="page-title-subheading">
+                        FONTE: <a href="https://www.cascavel.ce.gov.br/"> Prefeitura Municipal De Cascavel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-6 col-xl-4">
             <div class="card mb-3 widget-content bg-danger">
