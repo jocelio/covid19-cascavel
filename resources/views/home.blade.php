@@ -68,7 +68,7 @@
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading">Internados Fora do Município</div>
-                        <div class="widget-subheading">Description here</div>
+                        <div class="widget-subheading">Obtendo informações</div>
                     </div>
                     <div class="widget-content-right">
                         <div class="widget-numbers text-white"><span>{{$lastReport->interned_outside}} </span></div>
@@ -81,7 +81,11 @@
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading">Curados</div>
-                        <div class="widget-subheading">Description here</div>
+                        <div class="widget-subheading">
+                            <a class="text-white" href="https://saude.estadao.com.br/noticias/geral,nao-ha-comprovacao-que-curados-da-covid-19-sejam-imunes-a-doenca-diz-oms,70003282776">
+                                Curados não são imunes, previna-se.
+                            </a>
+                        </div>
                     </div>
                     <div class="widget-content-right">
                         <div class="widget-numbers text-white"><span>{{$lastReport->cured}} </span></div>
@@ -94,7 +98,13 @@
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading">Óbitos</div>
-                        <div class="widget-subheading">Description here</div>
+                        <div class="widget-subheading">
+                            <span type="button" data-toggle="tooltip"
+                                    title="A atual taxa de mortalidade é de {{$ratios->mortalityPercentage}}%, considerando os {{$lastReport->confirmed}} casos confirmados e os {{$lastReport->deaths}} óbitos."
+                                    data-placement="bottom" >
+                                <i class="fas fa-cross"></i>
+                            </span>
+                        </div>
                     </div>
                     <div class="widget-content-right">
                         <div class="widget-numbers text-white"><span>{{$lastReport->deaths}} </span></div>
@@ -178,6 +188,11 @@
                             fontSize: 20
                         }
                     }]
+                },
+                elements: {
+                    point:{
+                        radius: 0
+                    }
                 }
             }
         });

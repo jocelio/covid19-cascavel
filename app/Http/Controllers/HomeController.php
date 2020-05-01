@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DailyReport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -25,12 +26,10 @@ class HomeController extends Controller
     public function index()
     {
         $reports = DailyReport::orderBy('report_date')->get();
-
         $labels = collect($reports)->map(function ($report){ return $report->getFormattedReportDate();});
         $sortedReports = collect($reports)->sortByDesc('report_date');
         $lastReport = collect($sortedReports)->first();
         $ratios =$this->calcRatios($sortedReports, $lastReport);
-//        var_dump($ratios); die;
         return view('home',  ['reports'=> $reports, 'labels'=> $labels, 'lastReport'=> $lastReport, 'ratios'=>$ratios]);
     }
 
@@ -45,13 +44,15 @@ class HomeController extends Controller
     }
 
     private function calcRatios($sortedReports, $lastReport){
-        $lastIndex = array_search($lastReport->daily_report_id, collect($sortedReports)->map(function ($report){ return $report->daily_report_id;})->toArray());
+        $lastIndex = array_search($lastReport->daily_report_id, collect($sortedReports)
+            ->map(function ($report){ return $report->daily_report_id;})->toArray());
         $reportArray = collect($sortedReports)->toArray();
         $nextToLastReport = (object) $reportArray[$lastIndex-1];
 
         $ratios['confirmedRatio'] = $this->percentageRatio($nextToLastReport->confirmed, $lastReport->confirmed);
         $ratios['discardedRatio'] = $this->percentageRatio($nextToLastReport->discarded, $lastReport->discarded);
         $ratios['underInvestigationRatio'] = $this->percentageRatio($nextToLastReport->under_investigation, $lastReport->under_investigation);
+        $ratios['mortalityPercentage'] = $this->percentage($lastReport->deaths, $lastReport->confirmed);
         return (object) $ratios;
     }
 
@@ -63,5 +64,9 @@ class HomeController extends Controller
         if ($places < 0) { $places = 0; }
         $mult = pow(10, $places);
         return ($value >= 0 ? ceil($value * $mult):floor($value * $mult)) / $mult;
+    }
+
+    function percentage($percentage, $total ) {
+        return $this->round_out(( $percentage / $total  ) * 100, 2);
     }
 }
