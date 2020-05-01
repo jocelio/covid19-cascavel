@@ -13,6 +13,7 @@
 
 
 Route::get('/', 'HomeController@index');
+Route::get('/supporters', 'HomeController@supporters');
 
 
 Auth::routes();

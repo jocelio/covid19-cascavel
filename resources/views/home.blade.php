@@ -1,7 +1,21 @@
 @extends('layouts.home')
 
 @section('content')
-
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-car icon-gradient bg-mean-fruit">
+                    </i>
+                </div>
+                <div>
+                    Última atualização - {{$lastReport->getFormattedReportDate()}}
+                    <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-6 col-xl-4">
             <div class="card mb-3 widget-content bg-midnight-bloom">

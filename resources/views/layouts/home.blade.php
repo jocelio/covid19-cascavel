@@ -460,32 +460,20 @@
                                 Dashboard Example 1
                             </a>
                         </li>
+                        <li>
+                            <a href="/supporters" class="">
+                                <i class="metismenu-icon pe-7s-diamond"></i>
+                                Apoiadores
+                            </a>
+                        </li>
                         <li class="app-sidebar__heading">UI Components</li>
-                        <li
-
-
-
-
-
-
-
-
-                        >
+                        <li>
                             <a href="#">
                                 <i class="metismenu-icon pe-7s-diamond"></i>
                                 Elements
                                 <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                             </a>
-                            <ul
-
-
-
-
-
-
-
-
-                            >
+                            <ul>
                                 <li>
                                     <a href="elements-buttons-standard.html">
                                         <i class="metismenu-icon"></i>
@@ -536,19 +524,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li
-
-
-
-
-
-
-
-
-
-
-
-                        >
+                        <li>
                             <a href="#">
                                 <i class="metismenu-icon pe-7s-car"></i>
                                 Components
@@ -685,29 +661,10 @@
                     </ul>
                 </div>
             </div>
-        </div>    <div class="app-main__outer">
+        </div>
+        <div class="app-main__outer">
             <div class="app-main__inner">
-                <div class="app-page-title">
-                    <div class="page-title-wrapper">
-                        <div class="page-title-heading">
-                            <div class="page-title-icon">
-                                <i class="pe-7s-car icon-gradient bg-mean-fruit">
-                                </i>
-                            </div>
-                            <div>
-                                Última atualização - {{$lastReport->getFormattedReportDate()}}
-                                <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 @yield('content')
-
-
-
-
             </div>
             <div class="app-wrapper-footer">
                 <div class="app-footer">
