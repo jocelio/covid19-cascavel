@@ -38,7 +38,7 @@
 <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
     <div class="app-header header-shadow">
         <div class="app-header__logo">
-            <div class="logo-src"></div>
+            <div class="logo-src">LOGO AQUI</div>
             <div class="header__pane ml-auto">
                 <div>
                     <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -83,18 +83,16 @@
                             <div class="widget-content-left  ml-3 header-user-info">
 
                                 @if (Route::has('login'))
-
-                                        @auth
-                                        <div class="widget-heading">
-                                            Alina Mclourd
-                                        </div>
-                                        <div class="widget-subheading">
-                                            <a href="{{ url('/report') }}">Reports</a>
-                                        </div>
-                                        @else
-                                            <a href="{{ route('login') }}">Login</a>
-                                        @endauth
-
+                                    @auth
+                                    <div class="widget-heading">
+                                        Alina Mclourd
+                                    </div>
+                                    <div class="widget-subheading">
+                                        <a href="{{ url('/report') }}">Reports</a>
+                                    </div>
+                                    @else
+                                        <a href="{{ route('login') }}">Login</a>
+                                    @endauth
                                 @endif
                             </div>
                             <div class="widget-content-right header-user-info ml-3">
@@ -106,21 +104,23 @@
                     </div>
                 </div>        </div>
         </div>
-    </div>        <div class="ui-theme-settings">
+    </div>
+    <div class="ui-theme-settings">
         <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
             <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
         </button>
 
-    </div>        <div class="app-main">
+    </div>
+    <div class="app-main">
         <div class="app-sidebar sidebar-shadow">
             <div class="app-header__logo">
                 <div class="logo-src"></div>
                 <div class="header__pane ml-auto">
                     <div>
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-                                    <span class="hamburger-box">
-                                        <span class="hamburger-inner"></span>
-                                    </span>
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -128,21 +128,22 @@
             <div class="app-header__mobile-menu">
                 <div>
                     <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
-                                <span class="hamburger-box">
-                                    <span class="hamburger-inner"></span>
-                                </span>
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
                     </button>
                 </div>
             </div>
             <div class="app-header__menu">
-                        <span>
-                            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-                                <span class="btn-icon-wrapper">
-                                    <i class="fa fa-ellipsis-v fa-w-6"></i>
-                                </span>
-                            </button>
+                <span>
+                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <span class="btn-icon-wrapper">
+                            <i class="fa fa-ellipsis-v fa-w-6"></i>
                         </span>
-            </div>    <div class="scrollbar-sidebar">
+                    </button>
+                </span>
+            </div>
+            <div class="scrollbar-sidebar">
                 <div class="app-sidebar__inner">
                     <ul class="vertical-nav-menu">
                         <li class="app-sidebar__heading">Dashboards</li>
@@ -162,6 +163,12 @@
                             <a href="/about" class="@if(Request::is('about')) mm-active @endif">
                                 <i class="metismenu-icon pe-7s-rocket"></i>
                                 Graficos
+                            </a>
+                        </li>
+                        <li class="app-sidebar__heading">Compartilhe</li>
+                        <li>
+                            <a class="" href="whatsapp://send?text=https://covid19-cascavel.herokuapp.com/">
+                                <img src="{{ asset('images/whatsapp-48.png') }}" alt="Compartilhe no Whatsapp" title="Compartilhe no Whatsapp" width="30"/>
                             </a>
                         </li>
                     </ul>

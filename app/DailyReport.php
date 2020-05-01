@@ -11,7 +11,8 @@ class DailyReport extends Model
     protected $primaryKey = 'daily_report_id';
     public $incrementing = true;
 
-    protected $fillable = ['id_user','confirmed','discarded','under_investigation','interned_outside','cured','deaths','report_date'];
+    protected $fillable = ['id_user','confirmed','discarded',
+        'under_investigation','interned_outside','cured','deaths','report_date'];
     //
 
 
