@@ -463,13 +463,6 @@
                         <li class="app-sidebar__heading">UI Components</li>
                         <li
 
-
-
-
-
-
-
-
                         >
                             <a href="#">
                                 <i class="metismenu-icon pe-7s-diamond"></i>
