@@ -85,7 +85,7 @@
                                 @if (Route::has('login'))
                                     @auth
                                     <div class="widget-heading">
-                                        Alina Mclourd
+                                        {{ Auth::user()->name }}
                                     </div>
                                     <div class="widget-subheading">
                                         <a href="{{ url('/report') }}">Reports</a>
@@ -165,6 +165,19 @@
                                 Graficos
                             </a>
                         </li>
+                        @auth
+                        <li>
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                <i class="metismenu-icon pe-7s-power"></i>
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                        @endauth
                         <li class="app-sidebar__heading">Compartilhe</li>
                         <li>
                             <a class="" href="whatsapp://send?text=https://covid19-cascavel.herokuapp.com/">

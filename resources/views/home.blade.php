@@ -24,7 +24,7 @@
                     <div class="widget-content-left">
                         <div class="widget-heading">Confirmados</div>
                         <div class="widget-subheading">
-                            Taxa de crescimento de {{$ratios->confirmedRatio}}%
+                            Crescimento de {{$ratios->confirmedRatio}}% do ultimo relatório.
                         </div>
                     </div>
                     <div class="widget-content-right">
@@ -39,7 +39,7 @@
                     <div class="widget-content-left">
                         <div class="widget-heading">Descartados</div>
                         <div class="widget-subheading">
-                            Taxa de crescimento de {{$ratios->discardedRatio}}%
+                            Crescimento de {{$ratios->discardedRatio}}% do ultimo relatório.
                         </div>
                     </div>
                     <div class="widget-content-right">
@@ -53,7 +53,9 @@
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading"> Em Investigação</div>
-                        <div class="widget-subheading">Taxa de crescimento de {{$ratios->underInvestigationRatio}}%</div>
+                        <div class="widget-subheading">
+                            Crescimento de {{$ratios->underInvestigationRatio}}% do ultimo relatório.
+                        </div>
                     </div>
                     <div class="widget-content-right">
                         <div class="widget-numbers text-white"><span>{{$lastReport->under_investigation}}</span></div>
