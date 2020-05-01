@@ -19,7 +19,7 @@
     </div>
     <div class="row">
         <div class="col-md-6 col-xl-4">
-            <div class="card mb-3 widget-content bg-midnight-bloom">
+            <div class="card mb-3 widget-content bg-danger">
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading">Confirmados</div>
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="col-md-6 col-xl-4">
-            <div class="card mb-3 widget-content bg-arielle-smile">
+            <div class="card mb-3 widget-content bg-success">
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading">Descartados</div>
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="col-md-6 col-xl-4">
-            <div class="card mb-3 widget-content bg-grow-early">
+            <div class="card mb-3 widget-content bg-warning">
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading"> Em Investigação</div>
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="col-md-6 col-xl-4">
-            <div class="card mb-3 widget-content bg-grow-early">
+            <div class="card mb-3 widget-content bg-night-sky">
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading">Internados Fora do Município</div>
@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="col-md-6 col-xl-4">
-            <div class="card mb-3 widget-content bg-grow-early">
+            <div class="card mb-3 widget-content bg-info">
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading">Curados</div>
@@ -84,7 +84,7 @@
             </div>
         </div>
         <div class="col-md-6 col-xl-4">
-            <div class="card mb-3 widget-content bg-grow-early">
+            <div class="card mb-3 widget-content bg-royal">
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading">Óbitos</div>
