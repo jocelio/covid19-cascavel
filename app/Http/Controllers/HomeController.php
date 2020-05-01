@@ -29,8 +29,17 @@ class HomeController extends Controller
         $labels = collect($reports)->map(function ($report){ return $report->getFormattedReportDate();});
         $sortedReports = collect($reports)->sortByDesc('report_date');
         $lastReport = collect($sortedReports)->first();
+        $firstReport = collect($sortedReports)->last();
+        $midwayReport = collect($sortedReports)->get((int)floor($reports->count() / 2));
         $ratios =$this->calcRatios($sortedReports, $lastReport);
-        return view('home',  ['reports'=> $reports, 'labels'=> $labels, 'lastReport'=> $lastReport, 'ratios'=>$ratios]);
+        return view('home',  [
+            'reports'=> $reports,
+            'labels'=> $labels,
+            'lastReport'=> $lastReport,
+            'ratios'=>$ratios,
+            'firstReport'=> $firstReport,
+            'midwayReport'=>$midwayReport,
+        ]);
     }
 
     public function supporters()
