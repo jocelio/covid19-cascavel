@@ -14,9 +14,12 @@
     <meta name="title" content="Covid-19 Cascavel">
     <meta name="description" content="
         Informações sobre os casos de Corona Vírus (Covid-19) no muninípio de Cascavel
+        @if(Request::is('/')) mm-active
         - Confirmados {{$lastReport->confirmed}}
         - Descartados {{$lastReport->discarded}}
-        - Em Investigação {{$lastReport->under_investigation}}">
+        - Em Investigação {{$lastReport->under_investigation}}
+        @endif
+        ">
     <meta property="og:title" content="Covid-19 Cascavel" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={{config('app.url')}}" />
