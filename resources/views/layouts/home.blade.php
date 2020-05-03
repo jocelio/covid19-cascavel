@@ -14,7 +14,7 @@
     <meta name="title" content="Covid-19 Cascavel">
     <meta name="description" content="
         Informações sobre os casos de Corona Vírus (Covid-19) no muninípio de Cascavel
-        @if(Request::is('/')) mm-active
+        @if(Request::is('/'))
         - Confirmados {{$lastReport->confirmed}}
         - Descartados {{$lastReport->discarded}}
         - Em Investigação {{$lastReport->under_investigation}}
