@@ -12,7 +12,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="title" content="Covid-19 Cascavel">
-    <meta name="description" content="Informações sobre os casos de Corona Vírus (Covid19) no muninípio de Cascavel">
+    <meta name="description" content="
+        Informações sobre os casos de Corona Vírus (Covid-19) no muninípio de Cascavel
+        - Confirmados {{$lastReport->confirmed}}
+        - Descartados {{$lastReport->discarded}}
+        - Em Investigação {{$lastReport->under_investigation}}">
     <meta property="og:title" content="Covid-19 Cascavel" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={{config('app.url')}}" />

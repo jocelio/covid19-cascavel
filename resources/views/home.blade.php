@@ -59,7 +59,7 @@
             <div class="card mb-3 widget-content bg-warning">
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
-                        <div class="widget-heading"> Em Investigação</div>
+                        <div class="widget-heading">Em Investigação</div>
                         <div class="widget-subheading">
                             Crescimento de {{$ratios->underInvestigationRatio}}% do último relatório.
                         </div>
