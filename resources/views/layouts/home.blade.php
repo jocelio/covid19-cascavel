@@ -32,13 +32,63 @@
 
         gtag('config', 'UA-165001958-1');
     </script>
-
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-messaging.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link href="{{ asset('css/main.css') }}" rel="stylesheet"></head>
 <body>
+<script>
+
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBShG9W1Yf1ssg7kuuQBKm2VYH2oyCAe5A",
+        authDomain: "covid19cascavel.firebaseapp.com",
+        databaseURL: "https://covid19cascavel.firebaseio.com",
+        projectId: "covid19cascavel",
+        storageBucket: "covid19cascavel.appspot.com",
+        messagingSenderId: "884857282315",
+        appId: "1:884857282315:web:a87fa86dd3cd4116264c0e"
+    };
+    // Initialize Firebase
+
+    var project = firebase.initializeApp(firebaseConfig);
+    var messaging = project.messaging();
+
+    messaging.requestPermission().then(() => {
+        messaging.getToken().then(token => {
+            console.log(token)
+            subscribeTokenToTopic(token, 'all')
+        });
+    }).catch(e => {
+        console.log(e);
+    });
+    messaging.onMessage(() => {
+        document.querySelector('.new-notification').style.display = 'block';
+    })
+
+    function subscribeTokenToTopic(token, topic) {
+        axios.post('https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/'+topic, {},{
+            headers: {
+                'Authorization': 'key=AAAAzgWanws:APA91bFkL99px6HKhYevNCE0eC9aLtsjRUZflws13ndl2ven9SxNSqiZ07HdM-3uiIkOaFj4h8fXqTJ7m6oyDeEVgKl-pRQArY9s9uvmhKRW1cd3rIstYRxD_Qccs25DCFBJOLclw5e2'
+            }
+        }).then(response => {
+            if (response.status < 200 || response.status >= 400) {
+                throw 'Error subscribing to topic: '+response.status + ' - ' + response.text();
+            }
+            console.log('Subscribed to "'+topic+'"');
+        }).catch(error => {
+            console.error(error);
+        })
+    }
+
+</script>
 <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
     <div class="app-header header-shadow">
         <div class="app-header__logo">
-            <div class="logo-src">LOGO AQUI</div>
+            <div class="logo-src">
+                Covid19Cascavel
+            </div>
             <div class="header__pane ml-auto">
                 <div>
                     <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -59,13 +109,13 @@
             </div>
         </div>
         <div class="app-header__menu">
-                <span>
-                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-                        <span class="btn-icon-wrapper">
-                            <i class="fa fa-ellipsis-v fa-w-6"></i>
-                        </span>
-                    </button>
-                </span>
+            <span>
+                <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                    <span class="btn-icon-wrapper">
+                        <i class="fa fa-ellipsis-v fa-w-6"></i>
+                    </span>
+                </button>
+            </span>
         </div>    <div class="app-header__content">
             <div class="app-header-left">
                 <div class="search-wrapper">
@@ -162,7 +212,7 @@
                         <li>
                             <a href="/about" class="@if(Request::is('about')) mm-active @endif">
                                 <i class="metismenu-icon pe-7s-rocket"></i>
-                                Graficos
+                                Sobre nós
                             </a>
                         </li>
                         @auth
@@ -195,8 +245,8 @@
             <div class="app-wrapper-footer">
                 <div class="app-footer">
                 </div>
-            </div>    </div>
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+            </div>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('scripts/main.js') }}"></script></body>

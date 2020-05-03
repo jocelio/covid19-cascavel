@@ -6,6 +6,7 @@ use App\DailyReport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use GuzzleHttp\Client;
 
 class DailyReportController extends Controller
 {
@@ -48,8 +49,30 @@ class DailyReportController extends Controller
         $fields['id_user'] = Auth::user()->id;
         $dailyReport->create($fields);
 
-        \Session::flash('status', 'Item cadastrado com sucesso.');
+        $this->notifyUsers();
+        \Session::flash('status', 'Item cadastrado com sucesso. Usuários notificados');
         return Redirect::to('report');
+    }
+
+    private function notifyUsers(){
+        $headers = [
+            'Content-Type'=> 'application/json',
+            'Authorization' => 'key=AAAAzgWanws:APA91bFkL99px6HKhYevNCE0eC9aLtsjRUZflws13ndl2ven9SxNSqiZ07HdM-3uiIkOaFj4h8fXqTJ7m6oyDeEVgKl-pRQArY9s9uvmhKRW1cd3rIstYRxD_Qccs25DCFBJOLclw5e2'
+        ];
+        $body = '{
+            "notification": {
+                "title": "Covid19Cascavel",
+                "body": "Nova atualização registrada",
+                "click_action": "https://covid19cascavel.com/",
+                "icon": "https://covid19cascavel.com/images/covid-19.jpg"
+            },
+            "to": "/topics/all"
+        }';
+
+        $client = new Client(['base_uri' => 'https://fcm.googleapis.com/fcm/send']);
+        $request = new \GuzzleHttp\Psr7\Request('POST', 'https://fcm.googleapis.com/fcm/send', $headers, $body);
+        $client->send($request);
+
     }
 
     public function update($id, Request $request){

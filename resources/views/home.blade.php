@@ -17,6 +17,13 @@
             </div>
         </div>
     </div>
+    <div class="row new-notification" style="display: none">
+        <div class="col">
+            <div class="alert alert-success fade show" role="alert">
+                Nova atualização registrada, clique <a href="{{config('app.url')}}" class="alert-link">aqui</a> para atualizar.
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-6 col-xl-4">
             <div class="card mb-3 widget-content bg-danger">
@@ -68,7 +75,7 @@
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                         <div class="widget-heading">Internados Fora do Município</div>
-                        <div class="widget-subheading">Obtendo informações</div>
+                        <div class="widget-subheading">Fortaleza</div>
                     </div>
                     <div class="widget-content-right">
                         <div class="widget-numbers text-white"><span>{{$lastReport->interned_outside}} </span></div>
@@ -124,7 +131,7 @@
 
     <div class="row d-none d-sm-block">
         <div class="col-md-12 col-lg-12">
-            <div class="mb-3 card">
+            <div class="mb-3 card py-4">
                 <canvas id="myChart" ></canvas>
             </div>
         </div>
@@ -132,8 +139,8 @@
 
     <div class="row">
         <div class="col-md-12 col-lg-12">
-            <div class="mb-3 card">
-                <canvas id="myPieChart" ></canvas>
+            <div class="mb-3 card py-4">
+                <canvas id="myPieChart"></canvas>
             </div>
         </div>
     </div>

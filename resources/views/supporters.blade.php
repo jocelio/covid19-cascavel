@@ -2,6 +2,15 @@
 
 @section('content')
     <div class="row">
+        <div class="col-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    Empresas que apoiam essa iniciativa
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-4">
             <div class="main-card mb-3 card">
                 <div class="bg-premium-dark">

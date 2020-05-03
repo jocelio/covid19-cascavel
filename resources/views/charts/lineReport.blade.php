@@ -55,6 +55,13 @@
                         labelString: 'Quantidade De Casos',
                         fontSize: 20
                     }
+                }],
+                xAxes: [{
+                    ticks: {
+                        autoSkip: false,
+                        maxRotation: 90,
+                        minRotation: 90
+                    }
                 }]
             },
             elements: {
