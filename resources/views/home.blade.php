@@ -61,7 +61,10 @@
                     <div class="widget-content-left">
                         <div class="widget-heading">Em Investigação</div>
                         <div class="widget-subheading">
-                            Crescimento de {{$ratios->underInvestigationRatio}}% do último relatório.
+                            @if ($ratios->underInvestigationRatioGrowing > 0) Crescimento @else Diminuição @endif
+                            de
+                            @if ($ratios->underInvestigationRatioGrowing > 0) {{$ratios->underInvestigationRatioGrowing}} @else {{$ratios->underInvestigationRatioDecreasing}} @endif
+                            % do último relatório.
                         </div>
                     </div>
                     <div class="widget-content-right">

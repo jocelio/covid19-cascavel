@@ -60,7 +60,12 @@ class HomeController extends Controller
 
         $ratios['confirmedRatio'] = $this->percentageRatio($nextToLastReport->confirmed, $lastReport->confirmed);
         $ratios['discardedRatio'] = $this->percentageRatio($nextToLastReport->discarded, $lastReport->discarded);
-        $ratios['underInvestigationRatio'] = $this->percentageRatio($nextToLastReport->under_investigation, $lastReport->under_investigation);
+
+        $ratios['underInvestigationRatioGrowing'] = $this->percentageRatio($nextToLastReport->under_investigation, $lastReport->under_investigation);
+        if($ratios['underInvestigationRatioGrowing'] < 0){
+            $ratios['underInvestigationRatioDecreasing'] = $this->percentageRatio($lastReport->under_investigation, $nextToLastReport->under_investigation);
+        }
+
         $ratios['mortalityPercentage'] = $this->percentage($lastReport->deaths, $lastReport->confirmed);
         return (object) $ratios;
     }

@@ -9,7 +9,7 @@
                     label: 'Descartados',
                     fill: false,
                     data: [@foreach($reports as $report) {!!$report->discarded!!},@endforeach],
-                    borderWidth: 2,
+                    borderWidth: 3,
                     borderColor: '#38c172',
                     backgroundColor: '#38c172',
                 },
@@ -25,7 +25,7 @@
                     label: 'Em Investigação',
                     fill: false,
                     data: [@foreach($reports as $report) {!!$report->under_investigation!!},@endforeach],
-                    borderWidth: 2,
+                    borderWidth: 3,
                     borderColor: '#ffed4a',
                     backgroundColor: '#ffed4a',
                 },
@@ -33,7 +33,7 @@
                     label: 'Curados',
                     fill: false,
                     data: [@foreach($reports as $report) {!!$report->cured!!},@endforeach],
-                    borderWidth: 2,
+                    borderWidth: 3,
                     borderColor: '#6cb2eb',
                     backgroundColor: '#6cb2eb',
                 },
@@ -66,7 +66,7 @@
             },
             elements: {
                 point:{
-                    radius: 0
+                    radius: 1
                 }
             }
         }
