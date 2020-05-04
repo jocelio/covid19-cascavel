@@ -138,7 +138,6 @@
                                 </div>
                             </div>
                             <div class="widget-content-left  ml-3 header-user-info">
-
                                 @if (Route::has('login'))
                                     @auth
                                     <div class="widget-heading">

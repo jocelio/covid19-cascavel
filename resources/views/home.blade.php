@@ -142,7 +142,7 @@
 
     <div class="row d-none d-sm-block">
         <div class="col-md-12 col-lg-12">
-            <div class="mb-3 card py-4">
+            <div class="mb-3 card py-4 px-3">
                 <canvas id="myChart" ></canvas>
             </div>
         </div>
