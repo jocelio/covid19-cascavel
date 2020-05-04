@@ -4,6 +4,18 @@ namespace App\Http\Controllers;
 
 use App\DailyReport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
+function getClosest($arr, $search) {
+    $closest = null;
+    foreach ($arr as $item) {
+       if ($closest === null || abs($search - $closest->confirmed) > abs($item->confirmed - $search)) {
+            $closest = $item;
+        }
+    }
+    return $closest;
+}
 
 class HomeController extends Controller
 {
@@ -24,29 +36,69 @@ class HomeController extends Controller
      */
     public function index()
     {
-        function getClosest($arr, $search) {
-            $closest = null;
-            foreach ($arr as $item) {
-               if ($closest === null || abs($search - $closest->confirmed) > abs($item->confirmed - $search)) {
-                    $closest = $item;
-                }
-            }
-            return $closest;
-        }
 
         $reports = DailyReport::orderBy('report_date')->get();
+        $labels = collect($reports)->map(function ($report){ return $report->getFormattedReportDate();});
+        $sortedReports = collect($reports)->sortByDesc('report_date');
+        $lastReport = collect($sortedReports)->first();
+        $firstReport = collect($sortedReports)->last();
+        $midwayReport = collect($sortedReports)->get((int)floor($reports->count() / 2));
+        $ratios =$this->calcRatios($sortedReports, $lastReport);
 
-        $labels = collect($reports)->map(function ($report) { return $report->getFormattedReportDate();});
-        $lastReport = collect($reports)->sortByDesc('report_date')->first();
-        $half = $lastReport->confirmed/2;
-        $closestDate = getClosest($reports, $half);
+        $closesHalftDateReport = getClosest($reports, $lastReport->confirmed/2);
+        $closestHalfDate = Carbon::parse($closesHalftDateReport->report_date);
+        $closestHalfDays = $closestHalfDate->diffInDays(Carbon::now());
 
+        return view('home',  [
+            'reports'=> $reports,
+            'labels'=> $labels,
+            'lastReport'=> $lastReport,
+            'ratios'=>$ratios,
+            'firstReport'=> $firstReport,
+            'midwayReport'=>$midwayReport,
+            'closestHalfDays'=>$closestHalfDays
+        ]);
+    }
 
-        return view('home',  ['reports'=> $reports,
-            'labels'=>$labels,
-            'lastReport'=>$lastReport,
-            'closestDay'=>$closestDate
-            ]
-        );
+    public function supporters()
+    {
+        return view('supporters');
+    }
+
+    public function about()
+    {
+        return view('about');
+    }
+
+    private function calcRatios($sortedReports, $lastReport){
+        $lastIndex = array_search($lastReport->daily_report_id, collect($sortedReports)
+            ->map(function ($report){ return $report->daily_report_id;})->toArray());
+        $reportArray = collect($sortedReports)->toArray();
+        $nextToLastReport = (object) $reportArray[$lastIndex-1];
+
+        $ratios['confirmedRatio'] = $this->percentageRatio($nextToLastReport->confirmed, $lastReport->confirmed);
+        $ratios['discardedRatio'] = $this->percentageRatio($nextToLastReport->discarded, $lastReport->discarded);
+
+        $ratios['underInvestigationRatioGrowing'] = $this->percentageRatio($nextToLastReport->under_investigation, $lastReport->under_investigation);
+        if($ratios['underInvestigationRatioGrowing'] < 0){
+            $ratios['underInvestigationRatioDecreasing'] = $this->percentageRatio($lastReport->under_investigation, $nextToLastReport->under_investigation);
+        }
+
+        $ratios['mortalityPercentage'] = $this->percentage($lastReport->deaths, $lastReport->confirmed);
+        return (object) $ratios;
+    }
+
+    function percentageRatio ($valueA = 0, $valueB = 0) {
+        return 100 - $ratio = $this->round_out($valueA / $valueB, 3) * 100 ;
+    }
+
+    function round_out ($value, $places=0) {
+        if ($places < 0) { $places = 0; }
+        $mult = pow(10, $places);
+        return ($value >= 0 ? ceil($value * $mult):floor($value * $mult)) / $mult;
+    }
+
+    function percentage($percentage, $total ) {
+        return $this->round_out(( $percentage / $total  ) * 100, 2);
     }
 }
