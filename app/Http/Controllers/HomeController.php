@@ -5,6 +5,17 @@ namespace App\Http\Controllers;
 use App\DailyReport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
+function getClosest($arr, $search) {
+    $closest = null;
+    foreach ($arr as $item) {
+       if ($closest === null || abs($search - $closest->confirmed) > abs($item->confirmed - $search)) {
+            $closest = $item;
+        }
+    }
+    return $closest;
+}
 
 class HomeController extends Controller
 {
@@ -25,6 +36,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $reports = DailyReport::orderBy('report_date')->get();
         $labels = collect($reports)->map(function ($report){ return $report->getFormattedReportDate();});
         $sortedReports = collect($reports)->sortByDesc('report_date');
@@ -32,6 +44,11 @@ class HomeController extends Controller
         $firstReport = collect($sortedReports)->last();
         $midwayReport = collect($sortedReports)->get((int)floor($reports->count() / 2));
         $ratios =$this->calcRatios($sortedReports, $lastReport);
+
+        $closesHalftDateReport = getClosest($reports, $lastReport->confirmed/2);
+        $closestHalfDate = Carbon::parse($closesHalftDateReport->report_date);
+        $closestHalfDays = $closestHalfDate->diffInDays(Carbon::now());
+
         return view('home',  [
             'reports'=> $reports,
             'labels'=> $labels,
@@ -39,6 +56,7 @@ class HomeController extends Controller
             'ratios'=>$ratios,
             'firstReport'=> $firstReport,
             'midwayReport'=>$midwayReport,
+            'closestHalfDays'=>$closestHalfDays
         ]);
     }
 

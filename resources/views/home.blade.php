@@ -9,7 +9,8 @@
                     </i>
                 </div>
                 <div>
-                    Última atualização - {{$lastReport->getFormattedReportDate()}}
+                    Última atualização - {{$lastReport->getFormattedReportDate()}} | Os confirmados estavam na metade a {{$closestHalfDays}} dias
+
                     <div class="page-title-subheading">
                         FONTE: <a href="https://www.cascavel.ce.gov.br/"> Prefeitura Municipal De Cascavel</a>
                     </div>
@@ -132,6 +133,13 @@
         </div>
     </div>
 
+        <div class="row d-block d-sm-none">
+        <div class="col-md-12 col-lg-12">
+            <div class="mb-3 card">
+                <canvas id="myChartMobile" ></canvas>
+            </div>
+        </div>
+    </div>
     <div class="row d-block d-sm-none">
         <div class="col-md-12 col-lg-12">
             <div class="mb-3 card">
@@ -140,13 +148,6 @@
         </div>
     </div>
 
-    <div class="row d-none d-sm-block">
-        <div class="col-md-12 col-lg-12">
-            <div class="mb-3 card py-4 px-3">
-                <canvas id="myChart" ></canvas>
-            </div>
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-md-12 col-lg-12">
