@@ -31,7 +31,11 @@
                     <div class="widget-content-left">
                         <div class="widget-heading">Confirmados</div>
                         <div class="widget-subheading">
-                            Crescimento de {{$ratios->confirmedRatio}}% do último relatório.
+                            @if ($ratios->confirmedRatio == 0)
+                                Sem progressão nos casos confirmados.
+                            @else
+                                Crescimento de {{$ratios->confirmedRatio}}% do último relatório.
+                            @endif
                         </div>
                     </div>
                     <div class="widget-content-right">
@@ -46,7 +50,11 @@
                     <div class="widget-content-left">
                         <div class="widget-heading">Descartados</div>
                         <div class="widget-subheading">
-                            Crescimento de {{$ratios->discardedRatio}}% do último relatório.
+                            @if ($ratios->discardedRatio == 0)
+                                Sem progressão nos casos descartados.
+                            @else
+                                Crescimento de {{$ratios->discardedRatio}}% do último relatório.
+                            @endif
                         </div>
                     </div>
                     <div class="widget-content-right">
