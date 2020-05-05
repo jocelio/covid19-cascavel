@@ -45,8 +45,8 @@ class HomeController extends Controller
         $midwayReport = collect($sortedReports)->get((int)floor($reports->count() / 2));
         $ratios =$this->calcRatios($sortedReports, $lastReport);
 
-        $closesHalftDateReport = getClosest($reports, $lastReport->confirmed/2);
-        $closestHalfDate = Carbon::parse($closesHalftDateReport->report_date);
+        $closesHalfDateReport = getClosest($reports, $lastReport->confirmed/2);
+        $closestHalfDate = Carbon::parse($closesHalfDateReport->report_date);
         $closestHalfDays = $closestHalfDate->diffInDays(Carbon::now());
 
         return view('home',  [

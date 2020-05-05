@@ -16,8 +16,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/supporters', 'HomeController@supporters');
 Route::get('/about', 'HomeController@about');
 
-
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::middleware(['auth'])->group(function () {
 
