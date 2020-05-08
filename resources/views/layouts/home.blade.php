@@ -22,7 +22,17 @@
         ">
     <meta property="og:title" content="Covid-19 Cascavel" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={{config('app.url')}}" />
+    <meta property="og:title" content="Covid-19 Cascavel" />
+    <meta property="og:description" content="
+        Informações sobre os casos de Corona Vírus (Covid-19) no muninípio de Cascavel
+        @if(Request::is('/'))
+        - Confirmados {{$lastReport->confirmed}}
+        - Descartados {{$lastReport->discarded}}
+        - Em Investigação {{$lastReport->under_investigation}}
+    @endif
+        " />
+    <meta property="fb:app_id" content="653243382188137" />
+    <meta property="og:url" content={{config('app.url')}} />
     <meta property="og:image" content="{{ asset('images/covid-19.jpg') }}" />
     <meta property="og:image:width" content="675" />
     <meta property="og:image:height" content="1000" />
