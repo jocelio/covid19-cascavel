@@ -13,7 +13,7 @@
             responsive: true,
             title: {
                 display: true,
-                text: 'Divisão do cenário atual'
+                text: 'Situação atual dos casos confirmados'
             },
             scales: {
                 yAxes: [{

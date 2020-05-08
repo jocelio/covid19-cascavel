@@ -25,4 +25,9 @@ class DailyReport extends Model
     {
         return Carbon::parse($this->report_date)->format('d/m/Y');
     }
+
+    public function getCarbonDate()
+    {
+        return Carbon::parse($this->report_date);
+    }
 }

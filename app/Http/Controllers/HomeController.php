@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\DailyReport;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-function getClosest($arr, $search) {
+function getClosest($arr, $searchedValue) {
     $closest = null;
     foreach ($arr as $item) {
-       if ($closest === null || abs($search - $closest->confirmed) > abs($item->confirmed - $search)) {
+       if (
+           $closest === null ||
+           (abs($item->confirmed - $searchedValue) <= abs($searchedValue - $closest['confirmed'])
+            && $item->getCarbonDate()->greaterThan($closest->getCarbonDate())
+           )
+       ) {
             $closest = $item;
         }
     }
@@ -89,7 +92,8 @@ class HomeController extends Controller
     }
 
     function percentageRatio ($valueA = 0, $valueB = 0) {
-        return 100 - $ratio = $this->round_out($valueA / $valueB, 3) * 100 ;
+        $final = 100 - $ratio = $this->round_out($valueA / $valueB, 3) * 100;
+        return $this->round_out($final,2);
     }
 
     function round_out ($value, $places=0) {
