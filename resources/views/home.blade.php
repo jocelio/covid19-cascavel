@@ -10,9 +10,7 @@
                 </div>
                 <div>
                     Última atualização - {{$lastReport->getFormattedReportDate()}}
-                    @if ($closestHalfDays > 0)
-                        | O número de casos confirmados dobrou nos últimos {{$closestHalfDays}} dias.
-                    @endif<div class="page-title-subheading">
+                    <div class="page-title-subheading">
                         FONTE: <a href="https://www.cascavel.ce.gov.br/"> Prefeitura Municipal De Cascavel</a>
                     </div>
                 </div>
@@ -71,10 +69,15 @@
                     <div class="widget-content-left">
                         <div class="widget-heading">Em Investigação</div>
                         <div class="widget-subheading">
-                            @if ($ratios->underInvestigationRatioGrowing > 0) Crescimento @else Diminuição @endif
-                            de
-                            @if ($ratios->underInvestigationRatioGrowing > 0) {{$ratios->underInvestigationRatioGrowing}} @else {{$ratios->underInvestigationRatioDecreasing}} @endif
-                            % do último relatório.
+
+                            @if ($ratios->underInvestigationRatioGrowing != 0)
+                                @if ($ratios->underInvestigationRatioGrowing > 0) Crescimento @else Diminuição @endif
+                                de
+                                @if ($ratios->underInvestigationRatioGrowing > 0) {{$ratios->underInvestigationRatioGrowing}} @else {{$ratios->underInvestigationRatioDecreasing}} @endif
+                                % do último relatório.
+                            @else
+                                Sem alterações desse número desde o último relatório
+                            @endif
                         </div>
                     </div>
                     <div class="widget-content-right">
@@ -87,11 +90,11 @@
             <div class="card mb-3 widget-content bg-night-sky">
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Internados Fora do Município</div>
-                        <div class="widget-subheading">Fortaleza</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-white"><span>{{$lastReport->interned_outside}} </span></div>
+                        <div class="widget-heading">
+                            @if ($closestHalfDays > 0)
+                                O número de casos confirmados dobrou nos últimos {{$closestHalfDays}} dias
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
